@@ -1,36 +1,138 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AutoMart AI
 
-## Getting Started
+AutoMart AI is a work-in-progress e-commerce and dropshipping platform built with Next.js and Supabase.
 
-First, run the development server:
+The goal is to build a platform that can automate parts of the dropshipping workflow, including product management, order processing, supplier selection, pricing, procurement, and eventually AI-assisted decisions around products and advertising.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The project is being developed incrementally, starting with the core e-commerce system before adding the automation and AI components.
+
+## Current Status
+
+The current version includes:
+
+* User authentication
+* Product catalog
+* Product categories
+* Shopping cart
+* Checkout flow
+* Supabase database
+* Row Level Security (RLS)
+* Order and order-item database structure
+* Payment database structure
+* Supplier and procurement database structure
+* Inventory and shipment database structure
+* Financial transaction tracking structure
+
+The basic order creation flow is currently being implemented.
+
+AI-based product discovery, supplier automation, procurement, advertising automation, and autonomous decision-making are planned for later stages.
+
+## Tech Stack
+
+* **Next.js**
+* **React**
+* **TypeScript**
+* **Tailwind CSS**
+* **Supabase**
+* **PostgreSQL**
+* **Git / GitHub**
+
+## Project Structure
+
+```text
+automart-ai/
+├── app/                # Next.js application routes and pages
+├── components/         # Reusable UI components
+├── lib/                # Application logic and Supabase utilities
+├── supabase/
+│   └── migrations/     # Database migrations
+├── public/             # Static assets
+├── package.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Planned Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The project is being developed in stages.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Phase 1 — E-commerce Foundation
 
-## Learn More
+* Authentication
+* Product catalog
+* Categories
+* Cart
+* Checkout
+* Orders
+* Customer order history
 
-To learn more about Next.js, take a look at the following resources:
+### Phase 2 — Orders & Payments
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Order processing
+* Payment integration
+* Payment status tracking
+* Refund handling
+* Financial transaction tracking
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Phase 3 — Supplier & Fulfillment
 
-## Deploy on Vercel
+* Supplier management
+* Supplier offer comparison
+* Landed-cost calculation
+* Supplier selection
+* Inventory tracking
+* Procurement
+* Shipment and tracking management
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Phase 4 — AI Commerce Engine
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Planned AI capabilities include:
+
+* Product discovery
+* Demand analysis
+* Competition analysis
+* Price recommendations
+* Supplier scoring
+* Profit estimation
+* Product testing decisions
+* Product scaling and stopping decisions
+* AI-generated product descriptions and marketing content
+
+### Phase 5 — Advertising & Automation
+
+The longer-term goal is to integrate advertising platforms and build systems that can help automate:
+
+* Ad creation
+* Audience testing
+* Campaign analysis
+* ROAS and CAC analysis
+* Product performance monitoring
+* Scaling and stopping decisions
+
+## Database
+
+Supabase is used as the backend database and authentication layer.
+
+The database is designed around separate entities for products, orders, order items, payments, suppliers, supplier offers, procurement decisions, inventory, shipments, and financial transactions.
+
+Row Level Security is enabled so customer-facing access is restricted to the appropriate data.
+
+## Development
+
+To run the project locally:
+
+```bash
+npm install
+npm run dev
+```
+
+Then open:
+
+```text
+http://localhost:3000
+```
+
+Environment variables are required for Supabase connectivity. Secret keys should be kept in the local `.env.local` file and should never be committed to Git.
+
+## Project Status
+
+This project is actively being developed. Some database structures and features are already in place, while the supplier automation and AI components are still under development.
