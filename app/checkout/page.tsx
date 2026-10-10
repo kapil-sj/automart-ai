@@ -21,7 +21,7 @@ export default async function CheckoutPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-rose-400">Checkout</p>
           <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">Confirm delivery details.</h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-400">
-            This step validates your address and recalculates totals on the server. Payment, order creation, and procurement are not included yet.
+            Review your delivery details and authoritative server totals, then confirm to create your order. Payment and supplier procurement will follow in later phases.
           </p>
         </section>
         <CheckoutView />

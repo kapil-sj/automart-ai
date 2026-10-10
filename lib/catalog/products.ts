@@ -10,6 +10,8 @@ export type CatalogProduct = {
   id: string
   name: string
   description: string | null
+  price: number
+  currency: string
   image_url: string | null
   category: CatalogCategory | null
 }
@@ -22,6 +24,8 @@ const productFields = `
   id,
   name,
   description,
+  price,
+  currency,
   image_url,
   category:product_categories (
     id,
@@ -85,6 +89,8 @@ export async function getActiveProductsByIds(ids: string[]): Promise<CatalogProd
 function normalizeProduct(product: SupabaseProduct): CatalogProduct {
   return {
     ...product,
+    price: typeof product.price === 'number' ? product.price : Number(product.price ?? 0),
+    currency: product.currency || 'INR',
     category: Array.isArray(product.category) ? product.category[0] ?? null : product.category,
   }
 }

@@ -48,6 +48,7 @@ export async function createCheckoutReview(payload: unknown): Promise<CheckoutAc
     ok: true,
     review: {
       ...quote,
+      user_id: user.id,
       shipping,
       customerEmail: user.email ?? null,
       orderCreated: false,

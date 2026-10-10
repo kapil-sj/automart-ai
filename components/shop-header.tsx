@@ -15,6 +15,9 @@ export default function ShopHeader() {
         <Link href="/products" className="transition hover:text-white">
           Products
         </Link>
+        <Link href="/account/orders" className="transition hover:text-white">
+          Orders
+        </Link>
         <Link href="/account" className="transition hover:text-white">
           Account
         </Link>

@@ -19,24 +19,38 @@ export type CheckoutLine = {
   name: string
   imageUrl: string | null
   quantity: number
+  unit_price_inr: number
+  shipping_inr: number
+  other_fees_inr: number
+  landed_cost_inr: number
+  automart_commission_inr: number
+  line_total_inr: number
+  // Transition aliases
   unitPrice: number
   lineTotal: number
 }
 
 export type CheckoutQuote = {
   lines: CheckoutLine[]
+  subtotal_inr: number
+  shipping_inr: number
+  other_fees_inr: number
+  total_inr: number
+  automart_commission_inr: number
+  currency: string
+  // Transition aliases
   subtotal: number
   shippingAmount: number
   otherFees: number
   total: number
-  currency: string
 }
 
 export type CheckoutReview = CheckoutQuote & {
+  user_id: string | null
   shipping: ShippingDetails
   customerEmail: string | null
-  orderCreated: false
-  paymentCharged: false
+  orderCreated: boolean
+  paymentCharged: boolean
 }
 
 export type CheckoutFieldErrors = Partial<Record<keyof ShippingDetails | 'items', string>>
@@ -44,3 +58,18 @@ export type CheckoutFieldErrors = Partial<Record<keyof ShippingDetails | 'items'
 export type CheckoutActionResult =
   | { ok: true; review: CheckoutReview }
   | { ok: false; error: string; fieldErrors?: CheckoutFieldErrors }
+
+export type OrderPlacementResult =
+  | {
+      ok: true
+      orderId: string
+      externalOrderRef: string
+      status: string
+      totalInr: number
+      isDuplicateReplay?: boolean
+    }
+  | {
+      ok: false
+      error: string
+      fieldErrors?: CheckoutFieldErrors
+    }
